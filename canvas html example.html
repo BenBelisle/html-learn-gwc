@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		<canvas id="the_drawy_thingy" style="border: 1px #000 solid;"></canvas>
+		<canvas id="the_drawy_thingy" style="border: 1px #000 solid;" width="400" height="400"></canvas>
 		<script>
-
+var myCanvas = document.getElementById("the_drawy_thingy"); // this makes the JavaScript get access to the canvas element
+var ctx = myCanvas.getContext("2d"); // this lets the JavaScript get access to drawing on the canvas
+ctx.beginPath();
+ctx.fillStyle = "red";
+ctx.rect(5, 5, 10, 10); // x and y of top-leftmost corner, width, height
+ctx.fill();
+ctx.closePath();
 		</script>
 	</body>
 </html>
