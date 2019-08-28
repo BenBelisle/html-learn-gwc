@@ -1,1 +1,13 @@
-I am a potato.
+\section{Jobs}
+
+We aren't poor at all.  We have a house.  I don't contribute to my family financially, nor do I get an allowance.  I've never had a job, but I have volunteered or offered to volunteer at different places.
+
+\section{Leisure}
+
+\subsection{General fun}
+
+For fun, I program, read, or play Team Fortress 2.
+
+\subsection{Music}
+
+I enjoy music from lots of genres, but I mainly listen to the same 30 songs over and over.  I can't usually tell what the people are saying.
