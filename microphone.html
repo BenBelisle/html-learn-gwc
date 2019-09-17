@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+	<body>
+		<script>
+(function() {
+let pre = document.createElement("pre");
+document.body.appendChild(pre);
+let canvas = document.createElement("canvas");
+document.body.appendChild(canvas);
+let ctx = canvas.getContext("2d");
+let actx = new AudioContext();
+let micStream;
+let processorNode;
+let processorFFT;
+let analyserNode;
+let gainNode;
+function startMicrophone(stream) {
+	//pre.innerHTML = JSON.stringify(stream, null, 4);
+	gainNode = actx.createStream();
+	gainNode.connect(actx.destination);
+	micStream = actx.createMediaStreamSource(stream);
+	micStream.connect(gainNode);
+	processorNode = actx.createScriptProcessor(16384, 1, 1);
+	
+	processorNode.onaudioprocess = function(e) {
+		pre.innerHTML = "hello";
+		let data = e.inputBuffer.getChannelData(0);
+	}
+	micStream.connect(processorNode);
+	
+	processorFFT = actx.createScriptProcessor(2048, 1, 1);
+	processorFFT.connect(gainNode);
+	
+	analyserNode = actx.createAnalyser();
+	analyserNode.smoothingTimeConstant = 0;
+	analyserNode.fftSize = 2048;
+	micStream.connect(analyserNode);
+	
+	processorFFT.onaudioprocess = function() {
+		pre.innerHTML = "fft";
+		var array = new Uint8Array(analyserNode.frequencyBinCount);
+		analyserNode.getByteFrequencyData(array);
+	}
+	analyserNode.connect(processorFFT);
+}
+navigator.getUserMedia(
+	{audio:true}, 
+	function(stream) {
+		startMicrophone(stream);
+	},
+	function(e) {
+		alert('Error capturing audio.');
+	}
+);
+})();
+		</script>
+	</body>
+</html>
