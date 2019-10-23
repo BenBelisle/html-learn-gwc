@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<script>
+/*
+For a psych class
+*/
+let canvas = document.createElement("canvas");
+let ctx = canvas.getContext("2d");
+let image;
+document.body.appendChild(canvas);
+document.body.style.margin = "0px";
+canvas.style = "position: absolute; left: 0px; top: 0px;";
+function starlight() {
+	let n = 100;
+	canvas.width = 1366; // 8 * n
+	canvas.height = 768; // 5 * n
+	n = canvas.height / 5; // omitted
+	ctx.beginPath();
+	ctx.fillStyle = "#edbbf3";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	ctx.closePath();
+	ctx.beginPath();
+	ctx.fillStyle = "#555";
+	ctx.fillRect(Math.floor(3 * n), Math.floor(n), canvas.width - Math.floor(3 * n), Math.floor(n));
+	ctx.fillRect(0, Math.floor(3 * n), canvas.width, Math.floor(n));
+	ctx.closePath();
+	ctx.beginPath();
+	ctx.fillStyle = "#622489";
+	ctx.fillRect(0, 0, Math.floor(3 * n), Math.floor(3 * n));
+	ctx.closePath();
+	ctx.beginPath();
+	ctx.fillStyle = "#ffffff";
+	ctx.moveTo(.5 * n, .5 * n);
+	ctx.lineTo(1.5 * n, 1 * n);
+	ctx.lineTo(2.5 * n, .5 * n);
+	ctx.lineTo(2 * n, 1.5 * n);
+	ctx.lineTo(2.5 * n, 2.5 * n);
+	ctx.lineTo(1.5 * n, 2 * n);
+	ctx.lineTo(.5 * n, 2.5 * n);
+	ctx.lineTo(1 * n, 1.5 * n);
+	ctx.fill();
+	ctx.closePath();
+	ctx.beginPath();
+	ctx.fillStyle = "#a3a"; // 9eefd9 mint, 555 grey, a3a purple
+	ctx.moveTo(.25 * n, 1.5 * n);
+	ctx.arcTo(1.5 * n, 1.5 * n, 1.5 * n, .25 * n, n * 1.25);
+	ctx.arcTo(1.5 * n, 1.5 * n, 2.75 * n, 1.5 * n, n * 1.25);
+	ctx.arcTo(1.5 * n, 1.5 * n, 1.5 * n, 2.75 * n, n * 1.25);
+	ctx.arcTo(1.5 * n, 1.5 * n, .25 * n, 1.5 * n, n * 1.25);
+	ctx.fill();
+	ctx.closePath();
+	ctx.beginPath();
+	ctx.fillStyle = "#555";
+	ctx.font = "50px monospace";
+	ctx.textBaseline = "middle";
+	ctx.fillText("Starlight Village", n * 3, n * .5);
+	ctx.closePath();
+	ctx.beginPath();
+	ctx.fillStyle = "#edbbf3";
+	ctx.font = "22px monospace";
+	ctx.fillText("In sameness, there is peace.", n * 3, n * 1.2);
+	ctx.fillText("No one is superior, and no one shakes in fear.", n * 3, n * 1.5);
+	ctx.fillText("Free yourself from your destiny.", n * 3, n * 1.8);
+	ctx.fillText("You're no better than your friends.", n * 2, n * 3.2);
+	ctx.fillText("Accept your limitations, and happiness will follow.", n * 2, n * 3.5);
+	ctx.fillText("Competition only breeds the worst ego-filled conceit.", n * 2, n * 3.8);
+	ctx.closePath();
+	ctx.beginPath();
+	ctx.fillStyle = "#555";
+	ctx.fillText("Difference is frustration.", n * 3, n * 2.2);
+	ctx.fillText("We always work as a team.", n * 3, n * 2.5);
+	ctx.fillText("Friendship is equality.", n * 3, n * 2.8);
+	ctx.closePath();
+	ctx.beginPath();
+	ctx.fillStyle = "#555";
+	ctx.textAlign = "center";
+	ctx.fillText("We're happy to have anyone who wants to experience true friendship for the first time.", canvas.width / 2, n * 4.2);
+	ctx.fillText("Life is a joy in our town, we're all equal here.", canvas.width / 2, n * 4.5);
+	ctx.closePath();
+}
+function dukat() {
+	canvas.width = 1366;
+	canvas.height = 768;
+	ctx.beginPath();
+	ctx.fillStyle = "#333";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	ctx.closePath();
+	for (let i = 30; i < 1366; i += 200) {
+		ctx.beginPath();
+		ctx.fillStyle = "#555";
+		ctx.fillRect(i, 0, 50, canvas.height);
+		ctx.closePath();
+		for (let j = 30; j < 1366; j += 100) {
+			ctx.beginPath();
+			ctx.fillStyle = "#333";
+			ctx.arc(i + 25, j, 20, 0, 2 * Math.PI);
+			ctx.fill();
+			ctx.closePath();
+		}
+	}
+	image = new Image();
+	image.onload = function() {
+		ctx.drawImage(image, 0, 0);
+	}
+	image.src = "dukat.jpeg";
+	ctx.beginPath();
+	ctx.font = "60px monospace";
+	ctx.fillStyle = "#fff";
+	ctx.fillText("Empok Nor", 90, 500);
+	ctx.closePath();
+	ctx.beginPath();
+	ctx.font = "30px monospace";
+	ctx.fillStyle = "#fff";
+	let y = 130;
+	ctx.fillText("Brought to you by the protector", 100, 600);
+	ctx.fillText("of the Bajorans, Gul Dukat.", 100, 650);
+	ctx.fillText("Bajorans, where were your", 750, 50 + y);
+	ctx.fillText("Prophets during the occupation?", 750, 100 + y);
+	ctx.fillText("The Pah-wraiths want you.", 750, 200 + y);
+	ctx.fillText("I have spoken to them,", 750, 250 + y);
+	ctx.fillText("as no one else has.", 750, 300 + y);
+	ctx.fillText("Feel the love of the Pah-wraiths,", 750, 400 + y);
+	ctx.fillText("when your Prophets do not care.", 750, 450 + y);
+	ctx.closePath();
+}
+function elijah() {
+	canvas.width = 1366;
+	canvas.height = 768;
+	ctx.beginPath();
+	ctx.strokeStyle = "#aaa";
+	ctx.lineWidth = 20;
+	ctx.moveTo(400, 200);
+	ctx.arcTo(300, 100, 200, 100, 240);
+	ctx.arcTo(100, 100, 100, 200, 100);
+	ctx.arcTo(100, 300, 200, 300, 100);
+	ctx.arcTo(300, 300, 400, 200, 240);
+	ctx.arcTo(500, 100, 600, 100, 240);
+	ctx.arcTo(700, 100, 700, 200, 100);
+	ctx.arcTo(700, 300, 600, 300, 100);
+	ctx.arcTo(500, 300, 400, 200, 240);
+	ctx.lineTo(400, 200);
+	ctx.stroke();
+	ctx.closePath();
+	ctx.beginPath();
+	ctx.fillStyle = "#a00";
+	ctx.strokeStyle = "#500";
+	ctx.lineWidth = 5;
+	ctx.font = "80px sans-serif";
+	ctx.textBaseline = "middle";
+	ctx.strokeText("Eternal", 250, 200);
+	ctx.fillText("Eternal", 250, 200);
+	ctx.strokeText("Atake", 630, 200);
+	ctx.fillText("Atake", 630, 200);
+	ctx.closePath();
+	ctx.beginPath();
+	ctx.fillStyle = "#500";
+	ctx.font = "30px sans-serif";
+	ctx.fillText("If you join, you have supporting friends.", 100, 350);
+	ctx.fillText("Joining Eternal is leaving your unsupportive life behind.", 100, 400);
+	ctx.fillText("You don't have support now because you haven't", 100, 450);
+	ctx.fillText("joined your Eternal supportive family.", 150, 500);
+	ctx.fillText("If you don't join, you will be forgotten forever,", 100, 550);
+	ctx.fillText("your memories won't live on.", 150, 600);
+	ctx.fillText("What is ours is yours.", 800, 100);
+	ctx.fillText("It doesn't matter who you are.", 900, 200);
+	ctx.fillText("What matters is you are here.", 950, 250);
+	ctx.fillText("Don't be afraid of not fitting in.", 850, 450);
+	ctx.closePath();
+	ctx.beginPath();
+	ctx.fillStyle = "#500";
+	ctx.font = "60px sans-serif";
+	ctx.fillText("Join your eternal family.", 300, 675);
+	ctx.closePath();
+}
+
+function loadFlag(n) {
+	if (n == 0) {
+		starlight();
+	}
+	else if (n == 1) {
+		dukat();
+	}
+	else if (n == 2) {
+		elijah();
+	}
+};
+loadFlag(2);
+		</script>
+	</body>
+</html>
